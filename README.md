@@ -8,7 +8,7 @@
 
 ```bashshell
 $ cd your-project
-$ npm install -g kintone-basejs-sdk
+$ npm install --save kintone-basejs-sdk
 ```
 
 - On local
@@ -24,7 +24,7 @@ $ npm link
 ## References
 
 - [kintone-nodejs-sdk](https://github.com/kintone/kintone-nodejs-sdk)
-- kintone-js-sdk (not supported yet)
+- [kintone-js-sdk](https://github.com/kintone/kintone-js-sdk)
 
 ## License
 

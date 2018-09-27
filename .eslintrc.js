@@ -1,4 +1,15 @@
 module.exports = {
-    "env": { "es6": true },
-    "extends": "google"
+  "extends": "@cybozu",
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "valid-jsdoc": [
+      "error",
+      {
+        "requireParamDescription": false,
+        "requireReturnDescription": false
+      }
+    ]
+  }
 };
