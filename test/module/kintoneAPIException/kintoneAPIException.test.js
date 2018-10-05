@@ -22,6 +22,7 @@ const request = axios({
     [common.PASSWORD_AUTH]: common.getPasswordAuth(common.USERNAME, common.PASSWORD),
     'Content-Type': 'application/json'
   },
+  proxy: false,
   params: {
     app: -2
   },
