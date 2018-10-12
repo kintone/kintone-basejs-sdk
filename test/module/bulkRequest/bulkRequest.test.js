@@ -247,14 +247,21 @@ describe('BulkRequest module', () => {
         ]
       };
       const expectResult = {
-        'results':
-          [{
-            'message': 'Only numbers are allowed.',
-            'id': '1505999166-1721668264',
-            'code': 'GAIA_RE01'
-          },
-          {}
-          ]
+        'results': [
+          {},
+          {
+            'code': 'CB_VA01',
+            'id': '3Rjag6E7qVq7MSBOM6Ak',
+            'message': 'Missing or invalid input.',
+            'errors': {
+              'app': {
+                'messages': [
+                  'Only numbers are allowed.'
+                ]
+              }
+            }
+          }
+        ]
       };
       nock(URI)
         .post(BULK_REQUEST_API_ROUTE, (rqBody) => {
@@ -290,15 +297,21 @@ describe('BulkRequest module', () => {
         ]
       };
       const expectResult = {
-        'results':
-          [
-            {},
-            {
-              'message': 'Only numbers are allowed.',
-              'id': '1505999166-1721668264',
-              'code': 'GAIA_RE01'
+        'results': [
+          {},
+          {
+            'code': 'CB_VA01',
+            'id': '3Rjag6E7qVq7MSBOM6Ak',
+            'message': 'Missing or invalid input.',
+            'errors': {
+              'app': {
+                'messages': [
+                  'Only numbers are allowed.'
+                ]
+              }
             }
-          ]
+          }
+        ]
       };
       nock(URI)
         .post(BULK_REQUEST_API_ROUTE, (rqBody) => {
@@ -428,15 +441,21 @@ describe('BulkRequest module', () => {
         ]
       };
       const expectResult = {
-        'results':
-          [
-            {},
-            {
-              'message': '数字でなければなりません。',
-              'id': '1505999166-1721668264',
-              'code': 'GAIA_RE01'
+        'results': [
+          {},
+          {
+            'code': 'CB_VA01',
+            'id': '3Rjag6E7qVq7MSBOM6Ak',
+            'message': 'Missing or invalid input.',
+            'errors': {
+              'app': {
+                'messages': [
+                  'Only numbers are allowed.'
+                ]
+              }
             }
-          ]
+          }
+        ]
       };
       nock(URI)
         .post(BULK_REQUEST_API_ROUTE, (rqBody) => {
