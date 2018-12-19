@@ -9,6 +9,7 @@ const KintoneHTTPHeader = require('../model/http/httpHeader');
 let basicAuth = new WeakMap();
 let passwordAuth = new WeakMap();
 let apiToken = new WeakMap();
+let accessToken = new WeakMap();
 /**
  * Authentication module
  */
@@ -61,7 +62,6 @@ class Auth {
         return this;
     }
 
-
     /**
      * getApiToken
      * @return {String}
@@ -69,12 +69,36 @@ class Auth {
     getApiToken() {
         return apiToken.get(this);
     }
+
+    /**
+     * setAccessToken
+     * @param {String} accessTokenString
+     * @return {this}
+     */
+    setAccessToken(accessTokenString) {
+        accessToken.set(this, accessTokenString);
+        return this;
+    }
+
+    /**
+     * getAccessToken
+     * @return {String}
+     */
+    getAccessToken() {
+        return accessToken.get(this);
+    }
+
     /**
      * createHeaderCredentials
      * @return {Array<HTTPHeader>}
      */
     createHeaderCredentials() {
         let headerCredentials = [];
+        if (accessToken.get(this)) {
+            headerCredentials.push(new KintoneHTTPHeader(
+                AUTH_CONST.HEADER_KEY_AUTH_BASIC,
+                'Bearer ' + accessToken.get(this)));
+        }
         if (apiToken.get(this)) {
             headerCredentials.push(new KintoneHTTPHeader(
                 AUTH_CONST.HEADER_KEY_AUTH_APITOKEN, apiToken.get(this)));
